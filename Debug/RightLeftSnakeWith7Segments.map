@@ -142,7 +142,7 @@ LOAD c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xf46
+.text           0x00000000      0xf34
  *(.vectors)
  .vectors       0x00000000       0x54 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -255,26 +255,26 @@ LOAD c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/
                 0x00000b7e       0x1a ./Main.o
                 0x00000b7e                CheckRotation
  .text.RightCycle
-                0x00000b98      0x180 ./Main.o
+                0x00000b98      0x178 ./Main.o
                 0x00000b98                RightCycle
  .text.LeftCycle
-                0x00000d18      0x184 ./Main.o
-                0x00000d18                LeftCycle
+                0x00000d10      0x17a ./Main.o
+                0x00000d10                LeftCycle
  .text.StopCycle
-                0x00000e9c       0x38 ./Main.o
-                0x00000e9c                StopCycle
- .text.libgcc   0x00000ed4        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000ed4        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000ed4        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000ed4       0x38 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00000ed4                __prologue_saves__
- .text.libgcc   0x00000f0c       0x36 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00000f0c                __epilogue_restores__
-                0x00000f42                . = ALIGN (0x2)
+                0x00000e8a       0x38 ./Main.o
+                0x00000e8a                StopCycle
+ .text.libgcc   0x00000ec2        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000ec2        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000ec2        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000ec2       0x38 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00000ec2                __prologue_saves__
+ .text.libgcc   0x00000efa       0x36 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00000efa                __epilogue_restores__
+                0x00000f30                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000f42        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00000f42                exit
-                0x00000f42                _exit
+ .fini9         0x00000f30        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000f30                exit
+                0x00000f30                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -293,11 +293,11 @@ LOAD c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000f42        0x4 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000f30        0x4 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000f46                _etext = .
+                0x00000f34                _etext = .
 
-.data           0x00800060       0x10 load address 0x00000f46
+.data           0x00800060       0x10 load address 0x00000f34
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -330,7 +330,7 @@ LOAD c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/
                 0x00800070                _edata = .
                 0x00800070                PROVIDE (__data_end, .)
 
-.bss            0x00800070        0x1
+.bss            0x00800070        0x2
                 0x00800070                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800070        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -352,19 +352,21 @@ LOAD c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/
  .bss           0x00800070        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
  .bss           0x00800070        0x0 c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.bss*)
- .bss.staues    0x00800070        0x1 ./Main.o
-                0x00800070                staues
+ .bss.Counter   0x00800070        0x1 ./Main.o
+                0x00800070                Counter
+ .bss.staues    0x00800071        0x1 ./Main.o
+                0x00800071                staues
  *(COMMON)
-                0x00800071                PROVIDE (__bss_end, .)
-                0x00000f46                __data_load_start = LOADADDR (.data)
-                0x00000f56                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800072                PROVIDE (__bss_end, .)
+                0x00000f34                __data_load_start = LOADADDR (.data)
+                0x00000f44                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800071        0x0
-                0x00800071                PROVIDE (__noinit_start, .)
+.noinit         0x00800072        0x0
+                0x00800072                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800071                PROVIDE (__noinit_end, .)
-                0x00800071                _end = .
-                0x00800071                PROVIDE (__heap_start, .)
+                0x00800072                PROVIDE (__noinit_end, .)
+                0x00800072                _end = .
+                0x00800072                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -382,13 +384,13 @@ LOAD c:/imt tools/imt tools/sdk/imt_sdk_win_64/imt_sdk_win_64/winavr/bin/../lib/
 .signature
  *(.signature*)
 
-.stab           0x00000000      0x708
+.stab           0x00000000      0x69c
  *(.stab)
- .stab          0x00000000      0x708 ./Main.o
+ .stab          0x00000000      0x69c ./Main.o
 
-.stabstr        0x00000000      0x9a6
+.stabstr        0x00000000      0x990
  *(.stabstr)
- .stabstr       0x00000000      0x9a6 ./Main.o
+ .stabstr       0x00000000      0x990 ./Main.o
 
 .stab.excl
  *(.stab.excl)

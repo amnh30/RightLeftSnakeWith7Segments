@@ -3,33 +3,33 @@ RightLeftSnakeWith7Segments.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000f46  00000000  00000000  00000094  2**1
+  0 .text         00000f34  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000010  00800060  00000f46  00000fda  2**0
+  1 .data         00000010  00800060  00000f34  00000fc8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000001  00800070  00800070  00000fea  2**0
+  2 .bss          00000002  00800070  00800070  00000fd8  2**0
                   ALLOC
-  3 .stab         00000708  00000000  00000000  00000fec  2**2
+  3 .stab         0000069c  00000000  00000000  00000fd8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      000009a6  00000000  00000000  000016f4  2**0
+  4 .stabstr      00000990  00000000  00000000  00001674  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000140  00000000  00000000  0000209a  2**0
+  5 .debug_aranges 00000140  00000000  00000000  00002004  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000170  00000000  00000000  000021da  2**0
+  6 .debug_pubnames 00000170  00000000  00000000  00002144  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00001c49  00000000  00000000  0000234a  2**0
+  7 .debug_info   00001c49  00000000  00000000  000022b4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000eeb  00000000  00000000  00003f93  2**0
+  8 .debug_abbrev 00000eeb  00000000  00000000  00003efd  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000dad  00000000  00000000  00004e7e  2**0
+  9 .debug_line   00000dad  00000000  00000000  00004de8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000160  00000000  00000000  00005c2c  2**2
+ 10 .debug_frame  00000160  00000000  00000000  00005b98  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000028d  00000000  00000000  00005d8c  2**0
+ 11 .debug_str    0000028d  00000000  00000000  00005cf8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000007ce  00000000  00000000  00006019  2**0
+ 12 .debug_loc    000007ce  00000000  00000000  00005f85  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  000067e7  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  00006753  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -69,7 +69,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e6 e4       	ldi	r30, 0x46	; 70
+  66:	e4 e3       	ldi	r30, 0x34	; 52
   68:	ff e0       	ldi	r31, 0x0F	; 15
   6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -92,11 +92,11 @@ Disassembly of section .text:
   7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-  80:	a1 37       	cpi	r26, 0x71	; 113
+  80:	a2 37       	cpi	r26, 0x72	; 114
   82:	b1 07       	cpc	r27, r17
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
   86:	0e 94 a3 05 	call	0xb46	; 0xb46 <main>
-  8a:	0c 94 a1 07 	jmp	0xf42	; 0xf42 <_exit>
+  8a:	0c 94 98 07 	jmp	0xf30	; 0xf30 <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -148,7 +148,7 @@ Disassembly of section .text:
   ec:	b0 e0       	ldi	r27, 0x00	; 0
   ee:	eb e7       	ldi	r30, 0x7B	; 123
   f0:	f0 e0       	ldi	r31, 0x00	; 0
-  f2:	0c 94 6a 07 	jmp	0xed4	; 0xed4 <__prologue_saves__>
+  f2:	0c 94 61 07 	jmp	0xec2	; 0xec2 <__prologue_saves__>
   f6:	dc 01       	movw	r26, r24
   f8:	2b 01       	movw	r4, r22
   fa:	fa 01       	movw	r30, r20
@@ -473,14 +473,14 @@ Disassembly of section .text:
  378:	cd b7       	in	r28, 0x3d	; 61
  37a:	de b7       	in	r29, 0x3e	; 62
  37c:	e2 e1       	ldi	r30, 0x12	; 18
- 37e:	0c 94 86 07 	jmp	0xf0c	; 0xf0c <__epilogue_restores__>
+ 37e:	0c 94 7d 07 	jmp	0xefa	; 0xefa <__epilogue_restores__>
 
 00000382 <__subsf3>:
  382:	a0 e2       	ldi	r26, 0x20	; 32
  384:	b0 e0       	ldi	r27, 0x00	; 0
  386:	e7 ec       	ldi	r30, 0xC7	; 199
  388:	f1 e0       	ldi	r31, 0x01	; 1
- 38a:	0c 94 76 07 	jmp	0xeec	; 0xeec <__prologue_saves__+0x18>
+ 38a:	0c 94 6d 07 	jmp	0xeda	; 0xeda <__prologue_saves__+0x18>
  38e:	69 83       	std	Y+1, r22	; 0x01
  390:	7a 83       	std	Y+2, r23	; 0x02
  392:	8b 83       	std	Y+3, r24	; 0x03
@@ -518,14 +518,14 @@ Disassembly of section .text:
  3d8:	0e 94 fd 03 	call	0x7fa	; 0x7fa <__pack_f>
  3dc:	a0 96       	adiw	r28, 0x20	; 32
  3de:	e6 e0       	ldi	r30, 0x06	; 6
- 3e0:	0c 94 92 07 	jmp	0xf24	; 0xf24 <__epilogue_restores__+0x18>
+ 3e0:	0c 94 89 07 	jmp	0xf12	; 0xf12 <__epilogue_restores__+0x18>
 
 000003e4 <__addsf3>:
  3e4:	a0 e2       	ldi	r26, 0x20	; 32
  3e6:	b0 e0       	ldi	r27, 0x00	; 0
  3e8:	e8 ef       	ldi	r30, 0xF8	; 248
  3ea:	f1 e0       	ldi	r31, 0x01	; 1
- 3ec:	0c 94 76 07 	jmp	0xeec	; 0xeec <__prologue_saves__+0x18>
+ 3ec:	0c 94 6d 07 	jmp	0xeda	; 0xeda <__prologue_saves__+0x18>
  3f0:	69 83       	std	Y+1, r22	; 0x01
  3f2:	7a 83       	std	Y+2, r23	; 0x02
  3f4:	8b 83       	std	Y+3, r24	; 0x03
@@ -559,14 +559,14 @@ Disassembly of section .text:
  432:	0e 94 fd 03 	call	0x7fa	; 0x7fa <__pack_f>
  436:	a0 96       	adiw	r28, 0x20	; 32
  438:	e6 e0       	ldi	r30, 0x06	; 6
- 43a:	0c 94 92 07 	jmp	0xf24	; 0xf24 <__epilogue_restores__+0x18>
+ 43a:	0c 94 89 07 	jmp	0xf12	; 0xf12 <__epilogue_restores__+0x18>
 
 0000043e <__mulsf3>:
  43e:	a0 e2       	ldi	r26, 0x20	; 32
  440:	b0 e0       	ldi	r27, 0x00	; 0
  442:	e5 e2       	ldi	r30, 0x25	; 37
  444:	f2 e0       	ldi	r31, 0x02	; 2
- 446:	0c 94 6a 07 	jmp	0xed4	; 0xed4 <__prologue_saves__>
+ 446:	0c 94 61 07 	jmp	0xec2	; 0xec2 <__prologue_saves__>
  44a:	69 83       	std	Y+1, r22	; 0x01
  44c:	7a 83       	std	Y+2, r23	; 0x02
  44e:	8b 83       	std	Y+3, r24	; 0x03
@@ -806,14 +806,14 @@ Disassembly of section .text:
  626:	0e 94 fd 03 	call	0x7fa	; 0x7fa <__pack_f>
  62a:	a0 96       	adiw	r28, 0x20	; 32
  62c:	e2 e1       	ldi	r30, 0x12	; 18
- 62e:	0c 94 86 07 	jmp	0xf0c	; 0xf0c <__epilogue_restores__>
+ 62e:	0c 94 7d 07 	jmp	0xefa	; 0xefa <__epilogue_restores__>
 
 00000632 <__gtsf2>:
  632:	a8 e1       	ldi	r26, 0x18	; 24
  634:	b0 e0       	ldi	r27, 0x00	; 0
  636:	ef e1       	ldi	r30, 0x1F	; 31
  638:	f3 e0       	ldi	r31, 0x03	; 3
- 63a:	0c 94 76 07 	jmp	0xeec	; 0xeec <__prologue_saves__+0x18>
+ 63a:	0c 94 6d 07 	jmp	0xeda	; 0xeda <__prologue_saves__+0x18>
  63e:	69 83       	std	Y+1, r22	; 0x01
  640:	7a 83       	std	Y+2, r23	; 0x02
  642:	8b 83       	std	Y+3, r24	; 0x03
@@ -851,14 +851,14 @@ Disassembly of section .text:
  688:	8f ef       	ldi	r24, 0xFF	; 255
  68a:	68 96       	adiw	r28, 0x18	; 24
  68c:	e6 e0       	ldi	r30, 0x06	; 6
- 68e:	0c 94 92 07 	jmp	0xf24	; 0xf24 <__epilogue_restores__+0x18>
+ 68e:	0c 94 89 07 	jmp	0xf12	; 0xf12 <__epilogue_restores__+0x18>
 
 00000692 <__gesf2>:
  692:	a8 e1       	ldi	r26, 0x18	; 24
  694:	b0 e0       	ldi	r27, 0x00	; 0
  696:	ef e4       	ldi	r30, 0x4F	; 79
  698:	f3 e0       	ldi	r31, 0x03	; 3
- 69a:	0c 94 76 07 	jmp	0xeec	; 0xeec <__prologue_saves__+0x18>
+ 69a:	0c 94 6d 07 	jmp	0xeda	; 0xeda <__prologue_saves__+0x18>
  69e:	69 83       	std	Y+1, r22	; 0x01
  6a0:	7a 83       	std	Y+2, r23	; 0x02
  6a2:	8b 83       	std	Y+3, r24	; 0x03
@@ -896,14 +896,14 @@ Disassembly of section .text:
  6e8:	8f ef       	ldi	r24, 0xFF	; 255
  6ea:	68 96       	adiw	r28, 0x18	; 24
  6ec:	e6 e0       	ldi	r30, 0x06	; 6
- 6ee:	0c 94 92 07 	jmp	0xf24	; 0xf24 <__epilogue_restores__+0x18>
+ 6ee:	0c 94 89 07 	jmp	0xf12	; 0xf12 <__epilogue_restores__+0x18>
 
 000006f2 <__ltsf2>:
  6f2:	a8 e1       	ldi	r26, 0x18	; 24
  6f4:	b0 e0       	ldi	r27, 0x00	; 0
  6f6:	ef e7       	ldi	r30, 0x7F	; 127
  6f8:	f3 e0       	ldi	r31, 0x03	; 3
- 6fa:	0c 94 76 07 	jmp	0xeec	; 0xeec <__prologue_saves__+0x18>
+ 6fa:	0c 94 6d 07 	jmp	0xeda	; 0xeda <__prologue_saves__+0x18>
  6fe:	69 83       	std	Y+1, r22	; 0x01
  700:	7a 83       	std	Y+2, r23	; 0x02
  702:	8b 83       	std	Y+3, r24	; 0x03
@@ -941,14 +941,14 @@ Disassembly of section .text:
  748:	81 e0       	ldi	r24, 0x01	; 1
  74a:	68 96       	adiw	r28, 0x18	; 24
  74c:	e6 e0       	ldi	r30, 0x06	; 6
- 74e:	0c 94 92 07 	jmp	0xf24	; 0xf24 <__epilogue_restores__+0x18>
+ 74e:	0c 94 89 07 	jmp	0xf12	; 0xf12 <__epilogue_restores__+0x18>
 
 00000752 <__fixsfsi>:
  752:	ac e0       	ldi	r26, 0x0C	; 12
  754:	b0 e0       	ldi	r27, 0x00	; 0
  756:	ef ea       	ldi	r30, 0xAF	; 175
  758:	f3 e0       	ldi	r31, 0x03	; 3
- 75a:	0c 94 7a 07 	jmp	0xef4	; 0xef4 <__prologue_saves__+0x20>
+ 75a:	0c 94 71 07 	jmp	0xee2	; 0xee2 <__prologue_saves__+0x20>
  75e:	69 83       	std	Y+1, r22	; 0x01
  760:	7a 83       	std	Y+2, r23	; 0x02
  762:	8b 83       	std	Y+3, r24	; 0x03
@@ -1024,7 +1024,7 @@ Disassembly of section .text:
  7f0:	ca 01       	movw	r24, r20
  7f2:	2c 96       	adiw	r28, 0x0c	; 12
  7f4:	e2 e0       	ldi	r30, 0x02	; 2
- 7f6:	0c 94 96 07 	jmp	0xf2c	; 0xf2c <__epilogue_restores__+0x20>
+ 7f6:	0c 94 8d 07 	jmp	0xf1a	; 0xf1a <__epilogue_restores__+0x20>
 
 000007fa <__pack_f>:
  7fa:	df 92       	push	r13
@@ -1510,9 +1510,9 @@ void CheckRotation(void) {
     RightCycle(); // Handle right rotation cycle
  b86:	0e 94 cc 05 	call	0xb98	; 0xb98 <RightCycle>
     LeftCycle();  // Handle left rotation cycle
- b8a:	0e 94 8c 06 	call	0xd18	; 0xd18 <LeftCycle>
+ b8a:	0e 94 88 06 	call	0xd10	; 0xd10 <LeftCycle>
     StopCycle();  // Handle stop cycle
- b8e:	0e 94 4e 07 	call	0xe9c	; 0xe9c <StopCycle>
+ b8e:	0e 94 45 07 	call	0xe8a	; 0xe8a <StopCycle>
 }
  b92:	cf 91       	pop	r28
  b94:	df 91       	pop	r29
@@ -1528,600 +1528,580 @@ void RightCycle(void) {
  b9a:	cf 93       	push	r28
  b9c:	cd b7       	in	r28, 0x3d	; 61
  b9e:	de b7       	in	r29, 0x3e	; 62
- ba0:	2f 97       	sbiw	r28, 0x0f	; 15
+ ba0:	2e 97       	sbiw	r28, 0x0e	; 14
  ba2:	0f b6       	in	r0, 0x3f	; 63
  ba4:	f8 94       	cli
  ba6:	de bf       	out	0x3e, r29	; 62
  ba8:	0f be       	out	0x3f, r0	; 63
  baa:	cd bf       	out	0x3d, r28	; 61
-    u8 RightCounter = 0; // Counter for segment position
- bac:	1f 86       	std	Y+15, r1	; 0x0f
-    PORTA = 0xFF; // Set PORTA to high initially
- bae:	eb e3       	ldi	r30, 0x3B	; 59
- bb0:	f0 e0       	ldi	r31, 0x00	; 0
- bb2:	8f ef       	ldi	r24, 0xFF	; 255
- bb4:	80 83       	st	Z, r24
- bb6:	97 c0       	rjmp	.+302    	; 0xce6 <RightCycle+0x14e>
+ bac:	98 c0       	rjmp	.+304    	; 0xcde <RightCycle+0x146>
+
+
 
     while ((0b11111110 == PINB) && (0b11111101 != PINB) && (0b11111100 != PINB)) {
-        PORTA ^= (1 << SegmentArray[RightCounter]); // Toggle the current segment
- bb8:	ab e3       	ldi	r26, 0x3B	; 59
- bba:	b0 e0       	ldi	r27, 0x00	; 0
- bbc:	eb e3       	ldi	r30, 0x3B	; 59
- bbe:	f0 e0       	ldi	r31, 0x00	; 0
- bc0:	80 81       	ld	r24, Z
- bc2:	48 2f       	mov	r20, r24
- bc4:	8f 85       	ldd	r24, Y+15	; 0x0f
- bc6:	88 2f       	mov	r24, r24
- bc8:	90 e0       	ldi	r25, 0x00	; 0
- bca:	fc 01       	movw	r30, r24
- bcc:	e8 59       	subi	r30, 0x98	; 152
- bce:	ff 4f       	sbci	r31, 0xFF	; 255
- bd0:	80 81       	ld	r24, Z
- bd2:	28 2f       	mov	r18, r24
- bd4:	30 e0       	ldi	r19, 0x00	; 0
- bd6:	81 e0       	ldi	r24, 0x01	; 1
- bd8:	90 e0       	ldi	r25, 0x00	; 0
- bda:	02 c0       	rjmp	.+4      	; 0xbe0 <RightCycle+0x48>
- bdc:	88 0f       	add	r24, r24
- bde:	99 1f       	adc	r25, r25
- be0:	2a 95       	dec	r18
- be2:	e2 f7       	brpl	.-8      	; 0xbdc <RightCycle+0x44>
- be4:	84 27       	eor	r24, r20
- be6:	8c 93       	st	X, r24
+    	if (Counter == 7) { // Reset counter when it exceeds array bounds
+ bae:	80 91 70 00 	lds	r24, 0x0070
+ bb2:	87 30       	cpi	r24, 0x07	; 7
+ bb4:	19 f4       	brne	.+6      	; 0xbbc <RightCycle+0x24>
+    	        	Counter = 0; // Start again from the beginning
+ bb6:	10 92 70 00 	sts	0x0070, r1
+ bba:	05 c0       	rjmp	.+10     	; 0xbc6 <RightCycle+0x2e>
+    	        } else {
+    	        	Counter++; // Increment the counter
+ bbc:	80 91 70 00 	lds	r24, 0x0070
+ bc0:	8f 5f       	subi	r24, 0xFF	; 255
+ bc2:	80 93 70 00 	sts	0x0070, r24
+    	        }
+        PORTA = ~(1 << SegmentArray[Counter]); // Toggle the current segment
+ bc6:	ab e3       	ldi	r26, 0x3B	; 59
+ bc8:	b0 e0       	ldi	r27, 0x00	; 0
+ bca:	80 91 70 00 	lds	r24, 0x0070
+ bce:	88 2f       	mov	r24, r24
+ bd0:	90 e0       	ldi	r25, 0x00	; 0
+ bd2:	fc 01       	movw	r30, r24
+ bd4:	e8 59       	subi	r30, 0x98	; 152
+ bd6:	ff 4f       	sbci	r31, 0xFF	; 255
+ bd8:	80 81       	ld	r24, Z
+ bda:	28 2f       	mov	r18, r24
+ bdc:	30 e0       	ldi	r19, 0x00	; 0
+ bde:	81 e0       	ldi	r24, 0x01	; 1
+ be0:	90 e0       	ldi	r25, 0x00	; 0
+ be2:	02 c0       	rjmp	.+4      	; 0xbe8 <RightCycle+0x50>
+ be4:	88 0f       	add	r24, r24
+ be6:	99 1f       	adc	r25, r25
+ be8:	2a 95       	dec	r18
+ bea:	e2 f7       	brpl	.-8      	; 0xbe4 <RightCycle+0x4c>
+ bec:	80 95       	com	r24
+ bee:	8c 93       	st	X, r24
         staues = PINA; // Store the current state of PORTA
- be8:	e9 e3       	ldi	r30, 0x39	; 57
- bea:	f0 e0       	ldi	r31, 0x00	; 0
- bec:	80 81       	ld	r24, Z
- bee:	80 93 70 00 	sts	0x0070, r24
- bf2:	80 e0       	ldi	r24, 0x00	; 0
- bf4:	90 e0       	ldi	r25, 0x00	; 0
- bf6:	aa ef       	ldi	r26, 0xFA	; 250
- bf8:	b3 e4       	ldi	r27, 0x43	; 67
- bfa:	8b 87       	std	Y+11, r24	; 0x0b
- bfc:	9c 87       	std	Y+12, r25	; 0x0c
- bfe:	ad 87       	std	Y+13, r26	; 0x0d
- c00:	be 87       	std	Y+14, r27	; 0x0e
+ bf0:	e9 e3       	ldi	r30, 0x39	; 57
+ bf2:	f0 e0       	ldi	r31, 0x00	; 0
+ bf4:	80 81       	ld	r24, Z
+ bf6:	80 93 71 00 	sts	0x0071, r24
+ bfa:	80 e0       	ldi	r24, 0x00	; 0
+ bfc:	90 e0       	ldi	r25, 0x00	; 0
+ bfe:	aa ef       	ldi	r26, 0xFA	; 250
+ c00:	b3 e4       	ldi	r27, 0x43	; 67
+ c02:	8b 87       	std	Y+11, r24	; 0x0b
+ c04:	9c 87       	std	Y+12, r25	; 0x0c
+ c06:	ad 87       	std	Y+13, r26	; 0x0d
+ c08:	be 87       	std	Y+14, r27	; 0x0e
  */
 void
 _delay_ms(double __ms)
 {
 	uint16_t __ticks;
 	double __tmp = ((F_CPU) / 4e3) * __ms;
- c02:	6b 85       	ldd	r22, Y+11	; 0x0b
- c04:	7c 85       	ldd	r23, Y+12	; 0x0c
- c06:	8d 85       	ldd	r24, Y+13	; 0x0d
- c08:	9e 85       	ldd	r25, Y+14	; 0x0e
- c0a:	20 e0       	ldi	r18, 0x00	; 0
- c0c:	30 e0       	ldi	r19, 0x00	; 0
- c0e:	4a ef       	ldi	r20, 0xFA	; 250
- c10:	54 e4       	ldi	r21, 0x44	; 68
- c12:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
- c16:	dc 01       	movw	r26, r24
- c18:	cb 01       	movw	r24, r22
- c1a:	8f 83       	std	Y+7, r24	; 0x07
- c1c:	98 87       	std	Y+8, r25	; 0x08
- c1e:	a9 87       	std	Y+9, r26	; 0x09
- c20:	ba 87       	std	Y+10, r27	; 0x0a
+ c0a:	6b 85       	ldd	r22, Y+11	; 0x0b
+ c0c:	7c 85       	ldd	r23, Y+12	; 0x0c
+ c0e:	8d 85       	ldd	r24, Y+13	; 0x0d
+ c10:	9e 85       	ldd	r25, Y+14	; 0x0e
+ c12:	20 e0       	ldi	r18, 0x00	; 0
+ c14:	30 e0       	ldi	r19, 0x00	; 0
+ c16:	4a ef       	ldi	r20, 0xFA	; 250
+ c18:	54 e4       	ldi	r21, 0x44	; 68
+ c1a:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+ c1e:	dc 01       	movw	r26, r24
+ c20:	cb 01       	movw	r24, r22
+ c22:	8f 83       	std	Y+7, r24	; 0x07
+ c24:	98 87       	std	Y+8, r25	; 0x08
+ c26:	a9 87       	std	Y+9, r26	; 0x09
+ c28:	ba 87       	std	Y+10, r27	; 0x0a
 	if (__tmp < 1.0)
- c22:	6f 81       	ldd	r22, Y+7	; 0x07
- c24:	78 85       	ldd	r23, Y+8	; 0x08
- c26:	89 85       	ldd	r24, Y+9	; 0x09
- c28:	9a 85       	ldd	r25, Y+10	; 0x0a
- c2a:	20 e0       	ldi	r18, 0x00	; 0
- c2c:	30 e0       	ldi	r19, 0x00	; 0
- c2e:	40 e8       	ldi	r20, 0x80	; 128
- c30:	5f e3       	ldi	r21, 0x3F	; 63
- c32:	0e 94 79 03 	call	0x6f2	; 0x6f2 <__ltsf2>
- c36:	88 23       	and	r24, r24
- c38:	2c f4       	brge	.+10     	; 0xc44 <RightCycle+0xac>
+ c2a:	6f 81       	ldd	r22, Y+7	; 0x07
+ c2c:	78 85       	ldd	r23, Y+8	; 0x08
+ c2e:	89 85       	ldd	r24, Y+9	; 0x09
+ c30:	9a 85       	ldd	r25, Y+10	; 0x0a
+ c32:	20 e0       	ldi	r18, 0x00	; 0
+ c34:	30 e0       	ldi	r19, 0x00	; 0
+ c36:	40 e8       	ldi	r20, 0x80	; 128
+ c38:	5f e3       	ldi	r21, 0x3F	; 63
+ c3a:	0e 94 79 03 	call	0x6f2	; 0x6f2 <__ltsf2>
+ c3e:	88 23       	and	r24, r24
+ c40:	2c f4       	brge	.+10     	; 0xc4c <RightCycle+0xb4>
 		__ticks = 1;
- c3a:	81 e0       	ldi	r24, 0x01	; 1
- c3c:	90 e0       	ldi	r25, 0x00	; 0
- c3e:	9e 83       	std	Y+6, r25	; 0x06
- c40:	8d 83       	std	Y+5, r24	; 0x05
- c42:	3f c0       	rjmp	.+126    	; 0xcc2 <RightCycle+0x12a>
+ c42:	81 e0       	ldi	r24, 0x01	; 1
+ c44:	90 e0       	ldi	r25, 0x00	; 0
+ c46:	9e 83       	std	Y+6, r25	; 0x06
+ c48:	8d 83       	std	Y+5, r24	; 0x05
+ c4a:	3f c0       	rjmp	.+126    	; 0xcca <RightCycle+0x132>
 	else if (__tmp > 65535)
- c44:	6f 81       	ldd	r22, Y+7	; 0x07
- c46:	78 85       	ldd	r23, Y+8	; 0x08
- c48:	89 85       	ldd	r24, Y+9	; 0x09
- c4a:	9a 85       	ldd	r25, Y+10	; 0x0a
- c4c:	20 e0       	ldi	r18, 0x00	; 0
- c4e:	3f ef       	ldi	r19, 0xFF	; 255
- c50:	4f e7       	ldi	r20, 0x7F	; 127
- c52:	57 e4       	ldi	r21, 0x47	; 71
- c54:	0e 94 19 03 	call	0x632	; 0x632 <__gtsf2>
- c58:	18 16       	cp	r1, r24
- c5a:	4c f5       	brge	.+82     	; 0xcae <RightCycle+0x116>
+ c4c:	6f 81       	ldd	r22, Y+7	; 0x07
+ c4e:	78 85       	ldd	r23, Y+8	; 0x08
+ c50:	89 85       	ldd	r24, Y+9	; 0x09
+ c52:	9a 85       	ldd	r25, Y+10	; 0x0a
+ c54:	20 e0       	ldi	r18, 0x00	; 0
+ c56:	3f ef       	ldi	r19, 0xFF	; 255
+ c58:	4f e7       	ldi	r20, 0x7F	; 127
+ c5a:	57 e4       	ldi	r21, 0x47	; 71
+ c5c:	0e 94 19 03 	call	0x632	; 0x632 <__gtsf2>
+ c60:	18 16       	cp	r1, r24
+ c62:	4c f5       	brge	.+82     	; 0xcb6 <RightCycle+0x11e>
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
- c5c:	6b 85       	ldd	r22, Y+11	; 0x0b
- c5e:	7c 85       	ldd	r23, Y+12	; 0x0c
- c60:	8d 85       	ldd	r24, Y+13	; 0x0d
- c62:	9e 85       	ldd	r25, Y+14	; 0x0e
- c64:	20 e0       	ldi	r18, 0x00	; 0
- c66:	30 e0       	ldi	r19, 0x00	; 0
- c68:	40 e2       	ldi	r20, 0x20	; 32
- c6a:	51 e4       	ldi	r21, 0x41	; 65
- c6c:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
- c70:	dc 01       	movw	r26, r24
- c72:	cb 01       	movw	r24, r22
- c74:	bc 01       	movw	r22, r24
- c76:	cd 01       	movw	r24, r26
- c78:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
- c7c:	dc 01       	movw	r26, r24
- c7e:	cb 01       	movw	r24, r22
- c80:	9e 83       	std	Y+6, r25	; 0x06
- c82:	8d 83       	std	Y+5, r24	; 0x05
- c84:	0f c0       	rjmp	.+30     	; 0xca4 <RightCycle+0x10c>
- c86:	88 ec       	ldi	r24, 0xC8	; 200
- c88:	90 e0       	ldi	r25, 0x00	; 0
- c8a:	9c 83       	std	Y+4, r25	; 0x04
- c8c:	8b 83       	std	Y+3, r24	; 0x03
+ c64:	6b 85       	ldd	r22, Y+11	; 0x0b
+ c66:	7c 85       	ldd	r23, Y+12	; 0x0c
+ c68:	8d 85       	ldd	r24, Y+13	; 0x0d
+ c6a:	9e 85       	ldd	r25, Y+14	; 0x0e
+ c6c:	20 e0       	ldi	r18, 0x00	; 0
+ c6e:	30 e0       	ldi	r19, 0x00	; 0
+ c70:	40 e2       	ldi	r20, 0x20	; 32
+ c72:	51 e4       	ldi	r21, 0x41	; 65
+ c74:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+ c78:	dc 01       	movw	r26, r24
+ c7a:	cb 01       	movw	r24, r22
+ c7c:	bc 01       	movw	r22, r24
+ c7e:	cd 01       	movw	r24, r26
+ c80:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+ c84:	dc 01       	movw	r26, r24
+ c86:	cb 01       	movw	r24, r22
+ c88:	9e 83       	std	Y+6, r25	; 0x06
+ c8a:	8d 83       	std	Y+5, r24	; 0x05
+ c8c:	0f c0       	rjmp	.+30     	; 0xcac <RightCycle+0x114>
+ c8e:	88 ec       	ldi	r24, 0xC8	; 200
+ c90:	90 e0       	ldi	r25, 0x00	; 0
+ c92:	9c 83       	std	Y+4, r25	; 0x04
+ c94:	8b 83       	std	Y+3, r24	; 0x03
     milliseconds can be achieved.
  */
 void
 _delay_loop_2(uint16_t __count)
 {
 	__asm__ volatile (
- c8e:	8b 81       	ldd	r24, Y+3	; 0x03
- c90:	9c 81       	ldd	r25, Y+4	; 0x04
- c92:	01 97       	sbiw	r24, 0x01	; 1
- c94:	f1 f7       	brne	.-4      	; 0xc92 <RightCycle+0xfa>
- c96:	9c 83       	std	Y+4, r25	; 0x04
- c98:	8b 83       	std	Y+3, r24	; 0x03
+ c96:	8b 81       	ldd	r24, Y+3	; 0x03
+ c98:	9c 81       	ldd	r25, Y+4	; 0x04
+ c9a:	01 97       	sbiw	r24, 0x01	; 1
+ c9c:	f1 f7       	brne	.-4      	; 0xc9a <RightCycle+0x102>
+ c9e:	9c 83       	std	Y+4, r25	; 0x04
+ ca0:	8b 83       	std	Y+3, r24	; 0x03
 		while(__ticks)
 		{
 			// wait 1/10 ms
 			_delay_loop_2(((F_CPU) / 4e3) / 10);
 			__ticks --;
- c9a:	8d 81       	ldd	r24, Y+5	; 0x05
- c9c:	9e 81       	ldd	r25, Y+6	; 0x06
- c9e:	01 97       	sbiw	r24, 0x01	; 1
- ca0:	9e 83       	std	Y+6, r25	; 0x06
- ca2:	8d 83       	std	Y+5, r24	; 0x05
+ ca2:	8d 81       	ldd	r24, Y+5	; 0x05
+ ca4:	9e 81       	ldd	r25, Y+6	; 0x06
+ ca6:	01 97       	sbiw	r24, 0x01	; 1
+ ca8:	9e 83       	std	Y+6, r25	; 0x06
+ caa:	8d 83       	std	Y+5, r24	; 0x05
 		__ticks = 1;
 	else if (__tmp > 65535)
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
- ca4:	8d 81       	ldd	r24, Y+5	; 0x05
- ca6:	9e 81       	ldd	r25, Y+6	; 0x06
- ca8:	00 97       	sbiw	r24, 0x00	; 0
- caa:	69 f7       	brne	.-38     	; 0xc86 <RightCycle+0xee>
- cac:	14 c0       	rjmp	.+40     	; 0xcd6 <RightCycle+0x13e>
+ cac:	8d 81       	ldd	r24, Y+5	; 0x05
+ cae:	9e 81       	ldd	r25, Y+6	; 0x06
+ cb0:	00 97       	sbiw	r24, 0x00	; 0
+ cb2:	69 f7       	brne	.-38     	; 0xc8e <RightCycle+0xf6>
+ cb4:	14 c0       	rjmp	.+40     	; 0xcde <RightCycle+0x146>
 			__ticks --;
 		}
 		return;
 	}
 	else
 		__ticks = (uint16_t)__tmp;
- cae:	6f 81       	ldd	r22, Y+7	; 0x07
- cb0:	78 85       	ldd	r23, Y+8	; 0x08
- cb2:	89 85       	ldd	r24, Y+9	; 0x09
- cb4:	9a 85       	ldd	r25, Y+10	; 0x0a
- cb6:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
- cba:	dc 01       	movw	r26, r24
- cbc:	cb 01       	movw	r24, r22
- cbe:	9e 83       	std	Y+6, r25	; 0x06
- cc0:	8d 83       	std	Y+5, r24	; 0x05
- cc2:	8d 81       	ldd	r24, Y+5	; 0x05
- cc4:	9e 81       	ldd	r25, Y+6	; 0x06
- cc6:	9a 83       	std	Y+2, r25	; 0x02
- cc8:	89 83       	std	Y+1, r24	; 0x01
- cca:	89 81       	ldd	r24, Y+1	; 0x01
- ccc:	9a 81       	ldd	r25, Y+2	; 0x02
- cce:	01 97       	sbiw	r24, 0x01	; 1
- cd0:	f1 f7       	brne	.-4      	; 0xcce <RightCycle+0x136>
- cd2:	9a 83       	std	Y+2, r25	; 0x02
- cd4:	89 83       	std	Y+1, r24	; 0x01
-        _delay_ms(Speed); // Delay for 500ms
-
-        if (RightCounter == 7) { // Reset counter when it exceeds array bounds
- cd6:	8f 85       	ldd	r24, Y+15	; 0x0f
- cd8:	87 30       	cpi	r24, 0x07	; 7
- cda:	11 f4       	brne	.+4      	; 0xce0 <RightCycle+0x148>
-            RightCounter = 0; // Start again from the beginning
- cdc:	1f 86       	std	Y+15, r1	; 0x0f
- cde:	03 c0       	rjmp	.+6      	; 0xce6 <RightCycle+0x14e>
-        } else {
-            RightCounter++; // Increment the counter
- ce0:	8f 85       	ldd	r24, Y+15	; 0x0f
- ce2:	8f 5f       	subi	r24, 0xFF	; 255
- ce4:	8f 87       	std	Y+15, r24	; 0x0f
+ cb6:	6f 81       	ldd	r22, Y+7	; 0x07
+ cb8:	78 85       	ldd	r23, Y+8	; 0x08
+ cba:	89 85       	ldd	r24, Y+9	; 0x09
+ cbc:	9a 85       	ldd	r25, Y+10	; 0x0a
+ cbe:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+ cc2:	dc 01       	movw	r26, r24
+ cc4:	cb 01       	movw	r24, r22
+ cc6:	9e 83       	std	Y+6, r25	; 0x06
+ cc8:	8d 83       	std	Y+5, r24	; 0x05
+ cca:	8d 81       	ldd	r24, Y+5	; 0x05
+ ccc:	9e 81       	ldd	r25, Y+6	; 0x06
+ cce:	9a 83       	std	Y+2, r25	; 0x02
+ cd0:	89 83       	std	Y+1, r24	; 0x01
+ cd2:	89 81       	ldd	r24, Y+1	; 0x01
+ cd4:	9a 81       	ldd	r25, Y+2	; 0x02
+ cd6:	01 97       	sbiw	r24, 0x01	; 1
+ cd8:	f1 f7       	brne	.-4      	; 0xcd6 <RightCycle+0x13e>
+ cda:	9a 83       	std	Y+2, r25	; 0x02
+ cdc:	89 83       	std	Y+1, r24	; 0x01
  */
 void RightCycle(void) {
-    u8 RightCounter = 0; // Counter for segment position
-    PORTA = 0xFF; // Set PORTA to high initially
+
+
 
     while ((0b11111110 == PINB) && (0b11111101 != PINB) && (0b11111100 != PINB)) {
- ce6:	e6 e3       	ldi	r30, 0x36	; 54
- ce8:	f0 e0       	ldi	r31, 0x00	; 0
- cea:	80 81       	ld	r24, Z
- cec:	8e 3f       	cpi	r24, 0xFE	; 254
- cee:	59 f4       	brne	.+22     	; 0xd06 <RightCycle+0x16e>
- cf0:	e6 e3       	ldi	r30, 0x36	; 54
- cf2:	f0 e0       	ldi	r31, 0x00	; 0
- cf4:	80 81       	ld	r24, Z
- cf6:	8d 3f       	cpi	r24, 0xFD	; 253
- cf8:	31 f0       	breq	.+12     	; 0xd06 <RightCycle+0x16e>
- cfa:	e6 e3       	ldi	r30, 0x36	; 54
- cfc:	f0 e0       	ldi	r31, 0x00	; 0
- cfe:	80 81       	ld	r24, Z
- d00:	8c 3f       	cpi	r24, 0xFC	; 252
- d02:	09 f0       	breq	.+2      	; 0xd06 <RightCycle+0x16e>
- d04:	59 cf       	rjmp	.-334    	; 0xbb8 <RightCycle+0x20>
-            RightCounter = 0; // Start again from the beginning
-        } else {
-            RightCounter++; // Increment the counter
-        }
+ cde:	e6 e3       	ldi	r30, 0x36	; 54
+ ce0:	f0 e0       	ldi	r31, 0x00	; 0
+ ce2:	80 81       	ld	r24, Z
+ ce4:	8e 3f       	cpi	r24, 0xFE	; 254
+ ce6:	59 f4       	brne	.+22     	; 0xcfe <RightCycle+0x166>
+ ce8:	e6 e3       	ldi	r30, 0x36	; 54
+ cea:	f0 e0       	ldi	r31, 0x00	; 0
+ cec:	80 81       	ld	r24, Z
+ cee:	8d 3f       	cpi	r24, 0xFD	; 253
+ cf0:	31 f0       	breq	.+12     	; 0xcfe <RightCycle+0x166>
+ cf2:	e6 e3       	ldi	r30, 0x36	; 54
+ cf4:	f0 e0       	ldi	r31, 0x00	; 0
+ cf6:	80 81       	ld	r24, Z
+ cf8:	8c 3f       	cpi	r24, 0xFC	; 252
+ cfa:	09 f0       	breq	.+2      	; 0xcfe <RightCycle+0x166>
+ cfc:	58 cf       	rjmp	.-336    	; 0xbae <RightCycle+0x16>
+        staues = PINA; // Store the current state of PORTA
+        _delay_ms(Speed); // Delay for 500ms
+
+
     }
 }
- d06:	2f 96       	adiw	r28, 0x0f	; 15
- d08:	0f b6       	in	r0, 0x3f	; 63
- d0a:	f8 94       	cli
- d0c:	de bf       	out	0x3e, r29	; 62
- d0e:	0f be       	out	0x3f, r0	; 63
- d10:	cd bf       	out	0x3d, r28	; 61
- d12:	cf 91       	pop	r28
- d14:	df 91       	pop	r29
- d16:	08 95       	ret
+ cfe:	2e 96       	adiw	r28, 0x0e	; 14
+ d00:	0f b6       	in	r0, 0x3f	; 63
+ d02:	f8 94       	cli
+ d04:	de bf       	out	0x3e, r29	; 62
+ d06:	0f be       	out	0x3f, r0	; 63
+ d08:	cd bf       	out	0x3d, r28	; 61
+ d0a:	cf 91       	pop	r28
+ d0c:	df 91       	pop	r29
+ d0e:	08 95       	ret
 
-00000d18 <LeftCycle>:
+00000d10 <LeftCycle>:
 
 /*
  * Function to cycle through segments in a leftward direction
  */
 void LeftCycle(void) {
- d18:	df 93       	push	r29
- d1a:	cf 93       	push	r28
- d1c:	cd b7       	in	r28, 0x3d	; 61
- d1e:	de b7       	in	r29, 0x3e	; 62
- d20:	2f 97       	sbiw	r28, 0x0f	; 15
- d22:	0f b6       	in	r0, 0x3f	; 63
- d24:	f8 94       	cli
- d26:	de bf       	out	0x3e, r29	; 62
- d28:	0f be       	out	0x3f, r0	; 63
- d2a:	cd bf       	out	0x3d, r28	; 61
-    u8 LeftCounter = 7; // Counter for segment position
- d2c:	87 e0       	ldi	r24, 0x07	; 7
- d2e:	8f 87       	std	Y+15, r24	; 0x0f
-    PORTA = 0xFF; // Set PORTA to high initially
- d30:	eb e3       	ldi	r30, 0x3B	; 59
- d32:	f0 e0       	ldi	r31, 0x00	; 0
- d34:	8f ef       	ldi	r24, 0xFF	; 255
- d36:	80 83       	st	Z, r24
- d38:	98 c0       	rjmp	.+304    	; 0xe6a <LeftCycle+0x152>
+ d10:	df 93       	push	r29
+ d12:	cf 93       	push	r28
+ d14:	cd b7       	in	r28, 0x3d	; 61
+ d16:	de b7       	in	r29, 0x3e	; 62
+ d18:	2e 97       	sbiw	r28, 0x0e	; 14
+ d1a:	0f b6       	in	r0, 0x3f	; 63
+ d1c:	f8 94       	cli
+ d1e:	de bf       	out	0x3e, r29	; 62
+ d20:	0f be       	out	0x3f, r0	; 63
+ d22:	cd bf       	out	0x3d, r28	; 61
+ d24:	99 c0       	rjmp	.+306    	; 0xe58 <LeftCycle+0x148>
+
+
 
     while ((0b11111110 != PINB) && (0b11111101 == PINB) && (0b11111100 != PINB)) {
-        PORTA ^= (1 << SegmentArray[LeftCounter]); // Toggle the current segment
- d3a:	ab e3       	ldi	r26, 0x3B	; 59
- d3c:	b0 e0       	ldi	r27, 0x00	; 0
- d3e:	eb e3       	ldi	r30, 0x3B	; 59
- d40:	f0 e0       	ldi	r31, 0x00	; 0
- d42:	80 81       	ld	r24, Z
- d44:	48 2f       	mov	r20, r24
- d46:	8f 85       	ldd	r24, Y+15	; 0x0f
- d48:	88 2f       	mov	r24, r24
- d4a:	90 e0       	ldi	r25, 0x00	; 0
- d4c:	fc 01       	movw	r30, r24
- d4e:	e8 59       	subi	r30, 0x98	; 152
- d50:	ff 4f       	sbci	r31, 0xFF	; 255
- d52:	80 81       	ld	r24, Z
- d54:	28 2f       	mov	r18, r24
- d56:	30 e0       	ldi	r19, 0x00	; 0
- d58:	81 e0       	ldi	r24, 0x01	; 1
- d5a:	90 e0       	ldi	r25, 0x00	; 0
- d5c:	02 c0       	rjmp	.+4      	; 0xd62 <LeftCycle+0x4a>
- d5e:	88 0f       	add	r24, r24
- d60:	99 1f       	adc	r25, r25
- d62:	2a 95       	dec	r18
- d64:	e2 f7       	brpl	.-8      	; 0xd5e <LeftCycle+0x46>
- d66:	84 27       	eor	r24, r20
- d68:	8c 93       	st	X, r24
+        PORTA = ~(1 << SegmentArray[Counter]); // Toggle the current segment
+ d26:	ab e3       	ldi	r26, 0x3B	; 59
+ d28:	b0 e0       	ldi	r27, 0x00	; 0
+ d2a:	80 91 70 00 	lds	r24, 0x0070
+ d2e:	88 2f       	mov	r24, r24
+ d30:	90 e0       	ldi	r25, 0x00	; 0
+ d32:	fc 01       	movw	r30, r24
+ d34:	e8 59       	subi	r30, 0x98	; 152
+ d36:	ff 4f       	sbci	r31, 0xFF	; 255
+ d38:	80 81       	ld	r24, Z
+ d3a:	28 2f       	mov	r18, r24
+ d3c:	30 e0       	ldi	r19, 0x00	; 0
+ d3e:	81 e0       	ldi	r24, 0x01	; 1
+ d40:	90 e0       	ldi	r25, 0x00	; 0
+ d42:	02 c0       	rjmp	.+4      	; 0xd48 <LeftCycle+0x38>
+ d44:	88 0f       	add	r24, r24
+ d46:	99 1f       	adc	r25, r25
+ d48:	2a 95       	dec	r18
+ d4a:	e2 f7       	brpl	.-8      	; 0xd44 <LeftCycle+0x34>
+ d4c:	80 95       	com	r24
+ d4e:	8c 93       	st	X, r24
         staues = PINA; // Store the current state of PORTA
- d6a:	e9 e3       	ldi	r30, 0x39	; 57
- d6c:	f0 e0       	ldi	r31, 0x00	; 0
- d6e:	80 81       	ld	r24, Z
- d70:	80 93 70 00 	sts	0x0070, r24
- d74:	80 e0       	ldi	r24, 0x00	; 0
- d76:	90 e0       	ldi	r25, 0x00	; 0
- d78:	aa ef       	ldi	r26, 0xFA	; 250
- d7a:	b3 e4       	ldi	r27, 0x43	; 67
- d7c:	8b 87       	std	Y+11, r24	; 0x0b
- d7e:	9c 87       	std	Y+12, r25	; 0x0c
- d80:	ad 87       	std	Y+13, r26	; 0x0d
- d82:	be 87       	std	Y+14, r27	; 0x0e
+ d50:	e9 e3       	ldi	r30, 0x39	; 57
+ d52:	f0 e0       	ldi	r31, 0x00	; 0
+ d54:	80 81       	ld	r24, Z
+ d56:	80 93 71 00 	sts	0x0071, r24
+ d5a:	80 e0       	ldi	r24, 0x00	; 0
+ d5c:	90 e0       	ldi	r25, 0x00	; 0
+ d5e:	aa ef       	ldi	r26, 0xFA	; 250
+ d60:	b3 e4       	ldi	r27, 0x43	; 67
+ d62:	8b 87       	std	Y+11, r24	; 0x0b
+ d64:	9c 87       	std	Y+12, r25	; 0x0c
+ d66:	ad 87       	std	Y+13, r26	; 0x0d
+ d68:	be 87       	std	Y+14, r27	; 0x0e
  */
 void
 _delay_ms(double __ms)
 {
 	uint16_t __ticks;
 	double __tmp = ((F_CPU) / 4e3) * __ms;
- d84:	6b 85       	ldd	r22, Y+11	; 0x0b
- d86:	7c 85       	ldd	r23, Y+12	; 0x0c
- d88:	8d 85       	ldd	r24, Y+13	; 0x0d
- d8a:	9e 85       	ldd	r25, Y+14	; 0x0e
- d8c:	20 e0       	ldi	r18, 0x00	; 0
- d8e:	30 e0       	ldi	r19, 0x00	; 0
- d90:	4a ef       	ldi	r20, 0xFA	; 250
- d92:	54 e4       	ldi	r21, 0x44	; 68
- d94:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
- d98:	dc 01       	movw	r26, r24
- d9a:	cb 01       	movw	r24, r22
- d9c:	8f 83       	std	Y+7, r24	; 0x07
- d9e:	98 87       	std	Y+8, r25	; 0x08
- da0:	a9 87       	std	Y+9, r26	; 0x09
- da2:	ba 87       	std	Y+10, r27	; 0x0a
+ d6a:	6b 85       	ldd	r22, Y+11	; 0x0b
+ d6c:	7c 85       	ldd	r23, Y+12	; 0x0c
+ d6e:	8d 85       	ldd	r24, Y+13	; 0x0d
+ d70:	9e 85       	ldd	r25, Y+14	; 0x0e
+ d72:	20 e0       	ldi	r18, 0x00	; 0
+ d74:	30 e0       	ldi	r19, 0x00	; 0
+ d76:	4a ef       	ldi	r20, 0xFA	; 250
+ d78:	54 e4       	ldi	r21, 0x44	; 68
+ d7a:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+ d7e:	dc 01       	movw	r26, r24
+ d80:	cb 01       	movw	r24, r22
+ d82:	8f 83       	std	Y+7, r24	; 0x07
+ d84:	98 87       	std	Y+8, r25	; 0x08
+ d86:	a9 87       	std	Y+9, r26	; 0x09
+ d88:	ba 87       	std	Y+10, r27	; 0x0a
 	if (__tmp < 1.0)
- da4:	6f 81       	ldd	r22, Y+7	; 0x07
- da6:	78 85       	ldd	r23, Y+8	; 0x08
- da8:	89 85       	ldd	r24, Y+9	; 0x09
- daa:	9a 85       	ldd	r25, Y+10	; 0x0a
- dac:	20 e0       	ldi	r18, 0x00	; 0
- dae:	30 e0       	ldi	r19, 0x00	; 0
- db0:	40 e8       	ldi	r20, 0x80	; 128
- db2:	5f e3       	ldi	r21, 0x3F	; 63
- db4:	0e 94 79 03 	call	0x6f2	; 0x6f2 <__ltsf2>
- db8:	88 23       	and	r24, r24
- dba:	2c f4       	brge	.+10     	; 0xdc6 <LeftCycle+0xae>
+ d8a:	6f 81       	ldd	r22, Y+7	; 0x07
+ d8c:	78 85       	ldd	r23, Y+8	; 0x08
+ d8e:	89 85       	ldd	r24, Y+9	; 0x09
+ d90:	9a 85       	ldd	r25, Y+10	; 0x0a
+ d92:	20 e0       	ldi	r18, 0x00	; 0
+ d94:	30 e0       	ldi	r19, 0x00	; 0
+ d96:	40 e8       	ldi	r20, 0x80	; 128
+ d98:	5f e3       	ldi	r21, 0x3F	; 63
+ d9a:	0e 94 79 03 	call	0x6f2	; 0x6f2 <__ltsf2>
+ d9e:	88 23       	and	r24, r24
+ da0:	2c f4       	brge	.+10     	; 0xdac <LeftCycle+0x9c>
 		__ticks = 1;
- dbc:	81 e0       	ldi	r24, 0x01	; 1
- dbe:	90 e0       	ldi	r25, 0x00	; 0
- dc0:	9e 83       	std	Y+6, r25	; 0x06
- dc2:	8d 83       	std	Y+5, r24	; 0x05
- dc4:	3f c0       	rjmp	.+126    	; 0xe44 <LeftCycle+0x12c>
+ da2:	81 e0       	ldi	r24, 0x01	; 1
+ da4:	90 e0       	ldi	r25, 0x00	; 0
+ da6:	9e 83       	std	Y+6, r25	; 0x06
+ da8:	8d 83       	std	Y+5, r24	; 0x05
+ daa:	3f c0       	rjmp	.+126    	; 0xe2a <LeftCycle+0x11a>
 	else if (__tmp > 65535)
- dc6:	6f 81       	ldd	r22, Y+7	; 0x07
- dc8:	78 85       	ldd	r23, Y+8	; 0x08
- dca:	89 85       	ldd	r24, Y+9	; 0x09
- dcc:	9a 85       	ldd	r25, Y+10	; 0x0a
- dce:	20 e0       	ldi	r18, 0x00	; 0
- dd0:	3f ef       	ldi	r19, 0xFF	; 255
- dd2:	4f e7       	ldi	r20, 0x7F	; 127
- dd4:	57 e4       	ldi	r21, 0x47	; 71
- dd6:	0e 94 19 03 	call	0x632	; 0x632 <__gtsf2>
- dda:	18 16       	cp	r1, r24
- ddc:	4c f5       	brge	.+82     	; 0xe30 <LeftCycle+0x118>
+ dac:	6f 81       	ldd	r22, Y+7	; 0x07
+ dae:	78 85       	ldd	r23, Y+8	; 0x08
+ db0:	89 85       	ldd	r24, Y+9	; 0x09
+ db2:	9a 85       	ldd	r25, Y+10	; 0x0a
+ db4:	20 e0       	ldi	r18, 0x00	; 0
+ db6:	3f ef       	ldi	r19, 0xFF	; 255
+ db8:	4f e7       	ldi	r20, 0x7F	; 127
+ dba:	57 e4       	ldi	r21, 0x47	; 71
+ dbc:	0e 94 19 03 	call	0x632	; 0x632 <__gtsf2>
+ dc0:	18 16       	cp	r1, r24
+ dc2:	4c f5       	brge	.+82     	; 0xe16 <LeftCycle+0x106>
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
- dde:	6b 85       	ldd	r22, Y+11	; 0x0b
- de0:	7c 85       	ldd	r23, Y+12	; 0x0c
- de2:	8d 85       	ldd	r24, Y+13	; 0x0d
- de4:	9e 85       	ldd	r25, Y+14	; 0x0e
- de6:	20 e0       	ldi	r18, 0x00	; 0
- de8:	30 e0       	ldi	r19, 0x00	; 0
- dea:	40 e2       	ldi	r20, 0x20	; 32
- dec:	51 e4       	ldi	r21, 0x41	; 65
- dee:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
- df2:	dc 01       	movw	r26, r24
- df4:	cb 01       	movw	r24, r22
- df6:	bc 01       	movw	r22, r24
- df8:	cd 01       	movw	r24, r26
- dfa:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
- dfe:	dc 01       	movw	r26, r24
- e00:	cb 01       	movw	r24, r22
- e02:	9e 83       	std	Y+6, r25	; 0x06
- e04:	8d 83       	std	Y+5, r24	; 0x05
- e06:	0f c0       	rjmp	.+30     	; 0xe26 <LeftCycle+0x10e>
- e08:	88 ec       	ldi	r24, 0xC8	; 200
- e0a:	90 e0       	ldi	r25, 0x00	; 0
- e0c:	9c 83       	std	Y+4, r25	; 0x04
- e0e:	8b 83       	std	Y+3, r24	; 0x03
- e10:	8b 81       	ldd	r24, Y+3	; 0x03
- e12:	9c 81       	ldd	r25, Y+4	; 0x04
- e14:	01 97       	sbiw	r24, 0x01	; 1
- e16:	f1 f7       	brne	.-4      	; 0xe14 <LeftCycle+0xfc>
- e18:	9c 83       	std	Y+4, r25	; 0x04
- e1a:	8b 83       	std	Y+3, r24	; 0x03
+ dc4:	6b 85       	ldd	r22, Y+11	; 0x0b
+ dc6:	7c 85       	ldd	r23, Y+12	; 0x0c
+ dc8:	8d 85       	ldd	r24, Y+13	; 0x0d
+ dca:	9e 85       	ldd	r25, Y+14	; 0x0e
+ dcc:	20 e0       	ldi	r18, 0x00	; 0
+ dce:	30 e0       	ldi	r19, 0x00	; 0
+ dd0:	40 e2       	ldi	r20, 0x20	; 32
+ dd2:	51 e4       	ldi	r21, 0x41	; 65
+ dd4:	0e 94 1f 02 	call	0x43e	; 0x43e <__mulsf3>
+ dd8:	dc 01       	movw	r26, r24
+ dda:	cb 01       	movw	r24, r22
+ ddc:	bc 01       	movw	r22, r24
+ dde:	cd 01       	movw	r24, r26
+ de0:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+ de4:	dc 01       	movw	r26, r24
+ de6:	cb 01       	movw	r24, r22
+ de8:	9e 83       	std	Y+6, r25	; 0x06
+ dea:	8d 83       	std	Y+5, r24	; 0x05
+ dec:	0f c0       	rjmp	.+30     	; 0xe0c <LeftCycle+0xfc>
+ dee:	88 ec       	ldi	r24, 0xC8	; 200
+ df0:	90 e0       	ldi	r25, 0x00	; 0
+ df2:	9c 83       	std	Y+4, r25	; 0x04
+ df4:	8b 83       	std	Y+3, r24	; 0x03
+ df6:	8b 81       	ldd	r24, Y+3	; 0x03
+ df8:	9c 81       	ldd	r25, Y+4	; 0x04
+ dfa:	01 97       	sbiw	r24, 0x01	; 1
+ dfc:	f1 f7       	brne	.-4      	; 0xdfa <LeftCycle+0xea>
+ dfe:	9c 83       	std	Y+4, r25	; 0x04
+ e00:	8b 83       	std	Y+3, r24	; 0x03
 		while(__ticks)
 		{
 			// wait 1/10 ms
 			_delay_loop_2(((F_CPU) / 4e3) / 10);
 			__ticks --;
- e1c:	8d 81       	ldd	r24, Y+5	; 0x05
- e1e:	9e 81       	ldd	r25, Y+6	; 0x06
- e20:	01 97       	sbiw	r24, 0x01	; 1
- e22:	9e 83       	std	Y+6, r25	; 0x06
- e24:	8d 83       	std	Y+5, r24	; 0x05
+ e02:	8d 81       	ldd	r24, Y+5	; 0x05
+ e04:	9e 81       	ldd	r25, Y+6	; 0x06
+ e06:	01 97       	sbiw	r24, 0x01	; 1
+ e08:	9e 83       	std	Y+6, r25	; 0x06
+ e0a:	8d 83       	std	Y+5, r24	; 0x05
 		__ticks = 1;
 	else if (__tmp > 65535)
 	{
 		//	__ticks = requested delay in 1/10 ms
 		__ticks = (uint16_t) (__ms * 10.0);
 		while(__ticks)
- e26:	8d 81       	ldd	r24, Y+5	; 0x05
- e28:	9e 81       	ldd	r25, Y+6	; 0x06
- e2a:	00 97       	sbiw	r24, 0x00	; 0
- e2c:	69 f7       	brne	.-38     	; 0xe08 <LeftCycle+0xf0>
- e2e:	14 c0       	rjmp	.+40     	; 0xe58 <LeftCycle+0x140>
+ e0c:	8d 81       	ldd	r24, Y+5	; 0x05
+ e0e:	9e 81       	ldd	r25, Y+6	; 0x06
+ e10:	00 97       	sbiw	r24, 0x00	; 0
+ e12:	69 f7       	brne	.-38     	; 0xdee <LeftCycle+0xde>
+ e14:	14 c0       	rjmp	.+40     	; 0xe3e <LeftCycle+0x12e>
 			__ticks --;
 		}
 		return;
 	}
 	else
 		__ticks = (uint16_t)__tmp;
- e30:	6f 81       	ldd	r22, Y+7	; 0x07
- e32:	78 85       	ldd	r23, Y+8	; 0x08
- e34:	89 85       	ldd	r24, Y+9	; 0x09
- e36:	9a 85       	ldd	r25, Y+10	; 0x0a
- e38:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
- e3c:	dc 01       	movw	r26, r24
- e3e:	cb 01       	movw	r24, r22
- e40:	9e 83       	std	Y+6, r25	; 0x06
- e42:	8d 83       	std	Y+5, r24	; 0x05
- e44:	8d 81       	ldd	r24, Y+5	; 0x05
- e46:	9e 81       	ldd	r25, Y+6	; 0x06
- e48:	9a 83       	std	Y+2, r25	; 0x02
- e4a:	89 83       	std	Y+1, r24	; 0x01
- e4c:	89 81       	ldd	r24, Y+1	; 0x01
- e4e:	9a 81       	ldd	r25, Y+2	; 0x02
- e50:	01 97       	sbiw	r24, 0x01	; 1
- e52:	f1 f7       	brne	.-4      	; 0xe50 <LeftCycle+0x138>
- e54:	9a 83       	std	Y+2, r25	; 0x02
- e56:	89 83       	std	Y+1, r24	; 0x01
+ e16:	6f 81       	ldd	r22, Y+7	; 0x07
+ e18:	78 85       	ldd	r23, Y+8	; 0x08
+ e1a:	89 85       	ldd	r24, Y+9	; 0x09
+ e1c:	9a 85       	ldd	r25, Y+10	; 0x0a
+ e1e:	0e 94 49 00 	call	0x92	; 0x92 <__fixunssfsi>
+ e22:	dc 01       	movw	r26, r24
+ e24:	cb 01       	movw	r24, r22
+ e26:	9e 83       	std	Y+6, r25	; 0x06
+ e28:	8d 83       	std	Y+5, r24	; 0x05
+ e2a:	8d 81       	ldd	r24, Y+5	; 0x05
+ e2c:	9e 81       	ldd	r25, Y+6	; 0x06
+ e2e:	9a 83       	std	Y+2, r25	; 0x02
+ e30:	89 83       	std	Y+1, r24	; 0x01
+ e32:	89 81       	ldd	r24, Y+1	; 0x01
+ e34:	9a 81       	ldd	r25, Y+2	; 0x02
+ e36:	01 97       	sbiw	r24, 0x01	; 1
+ e38:	f1 f7       	brne	.-4      	; 0xe36 <LeftCycle+0x126>
+ e3a:	9a 83       	std	Y+2, r25	; 0x02
+ e3c:	89 83       	std	Y+1, r24	; 0x01
         _delay_ms(Speed); // Delay for 500ms
 
-        if (LeftCounter == 0) { // Reset counter when it goes below array bounds
- e58:	8f 85       	ldd	r24, Y+15	; 0x0f
- e5a:	88 23       	and	r24, r24
- e5c:	19 f4       	brne	.+6      	; 0xe64 <LeftCycle+0x14c>
-            LeftCounter = 7; // Start again from the end
- e5e:	87 e0       	ldi	r24, 0x07	; 7
- e60:	8f 87       	std	Y+15, r24	; 0x0f
- e62:	03 c0       	rjmp	.+6      	; 0xe6a <LeftCycle+0x152>
+        if (Counter == 0) { // Reset counter when it goes below array bounds
+ e3e:	80 91 70 00 	lds	r24, 0x0070
+ e42:	88 23       	and	r24, r24
+ e44:	21 f4       	brne	.+8      	; 0xe4e <LeftCycle+0x13e>
+        	Counter = 7; // Start again from the end
+ e46:	87 e0       	ldi	r24, 0x07	; 7
+ e48:	80 93 70 00 	sts	0x0070, r24
+ e4c:	05 c0       	rjmp	.+10     	; 0xe58 <LeftCycle+0x148>
         } else {
-            LeftCounter--; // Decrement the counter
- e64:	8f 85       	ldd	r24, Y+15	; 0x0f
- e66:	81 50       	subi	r24, 0x01	; 1
- e68:	8f 87       	std	Y+15, r24	; 0x0f
+        	Counter--; // Decrement the counter
+ e4e:	80 91 70 00 	lds	r24, 0x0070
+ e52:	81 50       	subi	r24, 0x01	; 1
+ e54:	80 93 70 00 	sts	0x0070, r24
  */
 void LeftCycle(void) {
-    u8 LeftCounter = 7; // Counter for segment position
-    PORTA = 0xFF; // Set PORTA to high initially
+
+
 
     while ((0b11111110 != PINB) && (0b11111101 == PINB) && (0b11111100 != PINB)) {
- e6a:	e6 e3       	ldi	r30, 0x36	; 54
- e6c:	f0 e0       	ldi	r31, 0x00	; 0
- e6e:	80 81       	ld	r24, Z
- e70:	8e 3f       	cpi	r24, 0xFE	; 254
- e72:	59 f0       	breq	.+22     	; 0xe8a <LeftCycle+0x172>
- e74:	e6 e3       	ldi	r30, 0x36	; 54
- e76:	f0 e0       	ldi	r31, 0x00	; 0
- e78:	80 81       	ld	r24, Z
- e7a:	8d 3f       	cpi	r24, 0xFD	; 253
- e7c:	31 f4       	brne	.+12     	; 0xe8a <LeftCycle+0x172>
- e7e:	e6 e3       	ldi	r30, 0x36	; 54
- e80:	f0 e0       	ldi	r31, 0x00	; 0
- e82:	80 81       	ld	r24, Z
- e84:	8c 3f       	cpi	r24, 0xFC	; 252
- e86:	09 f0       	breq	.+2      	; 0xe8a <LeftCycle+0x172>
- e88:	58 cf       	rjmp	.-336    	; 0xd3a <LeftCycle+0x22>
-            LeftCounter = 7; // Start again from the end
+ e58:	e6 e3       	ldi	r30, 0x36	; 54
+ e5a:	f0 e0       	ldi	r31, 0x00	; 0
+ e5c:	80 81       	ld	r24, Z
+ e5e:	8e 3f       	cpi	r24, 0xFE	; 254
+ e60:	59 f0       	breq	.+22     	; 0xe78 <LeftCycle+0x168>
+ e62:	e6 e3       	ldi	r30, 0x36	; 54
+ e64:	f0 e0       	ldi	r31, 0x00	; 0
+ e66:	80 81       	ld	r24, Z
+ e68:	8d 3f       	cpi	r24, 0xFD	; 253
+ e6a:	31 f4       	brne	.+12     	; 0xe78 <LeftCycle+0x168>
+ e6c:	e6 e3       	ldi	r30, 0x36	; 54
+ e6e:	f0 e0       	ldi	r31, 0x00	; 0
+ e70:	80 81       	ld	r24, Z
+ e72:	8c 3f       	cpi	r24, 0xFC	; 252
+ e74:	09 f0       	breq	.+2      	; 0xe78 <LeftCycle+0x168>
+ e76:	57 cf       	rjmp	.-338    	; 0xd26 <LeftCycle+0x16>
+        	Counter = 7; // Start again from the end
         } else {
-            LeftCounter--; // Decrement the counter
+        	Counter--; // Decrement the counter
         }
     }
 }
- e8a:	2f 96       	adiw	r28, 0x0f	; 15
- e8c:	0f b6       	in	r0, 0x3f	; 63
- e8e:	f8 94       	cli
- e90:	de bf       	out	0x3e, r29	; 62
- e92:	0f be       	out	0x3f, r0	; 63
- e94:	cd bf       	out	0x3d, r28	; 61
- e96:	cf 91       	pop	r28
- e98:	df 91       	pop	r29
- e9a:	08 95       	ret
+ e78:	2e 96       	adiw	r28, 0x0e	; 14
+ e7a:	0f b6       	in	r0, 0x3f	; 63
+ e7c:	f8 94       	cli
+ e7e:	de bf       	out	0x3e, r29	; 62
+ e80:	0f be       	out	0x3f, r0	; 63
+ e82:	cd bf       	out	0x3d, r28	; 61
+ e84:	cf 91       	pop	r28
+ e86:	df 91       	pop	r29
+ e88:	08 95       	ret
 
-00000e9c <StopCycle>:
+00000e8a <StopCycle>:
 
 /*
  * Function to stop the segment cycle and retain the last state
  */
 void StopCycle(void) {
- e9c:	df 93       	push	r29
- e9e:	cf 93       	push	r28
- ea0:	cd b7       	in	r28, 0x3d	; 61
- ea2:	de b7       	in	r29, 0x3e	; 62
- ea4:	05 c0       	rjmp	.+10     	; 0xeb0 <StopCycle+0x14>
+ e8a:	df 93       	push	r29
+ e8c:	cf 93       	push	r28
+ e8e:	cd b7       	in	r28, 0x3d	; 61
+ e90:	de b7       	in	r29, 0x3e	; 62
+ e92:	05 c0       	rjmp	.+10     	; 0xe9e <StopCycle+0x14>
     while ((0b11111110 != PINB) && (0b11111101 != PINB) && (0b11111100 == PINB)) {
         PORTA = staues; // Retain the last state of PORTA
- ea6:	eb e3       	ldi	r30, 0x3B	; 59
- ea8:	f0 e0       	ldi	r31, 0x00	; 0
- eaa:	80 91 70 00 	lds	r24, 0x0070
- eae:	80 83       	st	Z, r24
+ e94:	eb e3       	ldi	r30, 0x3B	; 59
+ e96:	f0 e0       	ldi	r31, 0x00	; 0
+ e98:	80 91 71 00 	lds	r24, 0x0071
+ e9c:	80 83       	st	Z, r24
 
 /*
  * Function to stop the segment cycle and retain the last state
  */
 void StopCycle(void) {
     while ((0b11111110 != PINB) && (0b11111101 != PINB) && (0b11111100 == PINB)) {
- eb0:	e6 e3       	ldi	r30, 0x36	; 54
- eb2:	f0 e0       	ldi	r31, 0x00	; 0
- eb4:	80 81       	ld	r24, Z
- eb6:	8e 3f       	cpi	r24, 0xFE	; 254
- eb8:	51 f0       	breq	.+20     	; 0xece <StopCycle+0x32>
- eba:	e6 e3       	ldi	r30, 0x36	; 54
- ebc:	f0 e0       	ldi	r31, 0x00	; 0
- ebe:	80 81       	ld	r24, Z
- ec0:	8d 3f       	cpi	r24, 0xFD	; 253
- ec2:	29 f0       	breq	.+10     	; 0xece <StopCycle+0x32>
- ec4:	e6 e3       	ldi	r30, 0x36	; 54
- ec6:	f0 e0       	ldi	r31, 0x00	; 0
- ec8:	80 81       	ld	r24, Z
- eca:	8c 3f       	cpi	r24, 0xFC	; 252
- ecc:	61 f3       	breq	.-40     	; 0xea6 <StopCycle+0xa>
+ e9e:	e6 e3       	ldi	r30, 0x36	; 54
+ ea0:	f0 e0       	ldi	r31, 0x00	; 0
+ ea2:	80 81       	ld	r24, Z
+ ea4:	8e 3f       	cpi	r24, 0xFE	; 254
+ ea6:	51 f0       	breq	.+20     	; 0xebc <StopCycle+0x32>
+ ea8:	e6 e3       	ldi	r30, 0x36	; 54
+ eaa:	f0 e0       	ldi	r31, 0x00	; 0
+ eac:	80 81       	ld	r24, Z
+ eae:	8d 3f       	cpi	r24, 0xFD	; 253
+ eb0:	29 f0       	breq	.+10     	; 0xebc <StopCycle+0x32>
+ eb2:	e6 e3       	ldi	r30, 0x36	; 54
+ eb4:	f0 e0       	ldi	r31, 0x00	; 0
+ eb6:	80 81       	ld	r24, Z
+ eb8:	8c 3f       	cpi	r24, 0xFC	; 252
+ eba:	61 f3       	breq	.-40     	; 0xe94 <StopCycle+0xa>
         PORTA = staues; // Retain the last state of PORTA
     }
 }
- ece:	cf 91       	pop	r28
- ed0:	df 91       	pop	r29
- ed2:	08 95       	ret
+ ebc:	cf 91       	pop	r28
+ ebe:	df 91       	pop	r29
+ ec0:	08 95       	ret
 
-00000ed4 <__prologue_saves__>:
- ed4:	2f 92       	push	r2
- ed6:	3f 92       	push	r3
- ed8:	4f 92       	push	r4
- eda:	5f 92       	push	r5
- edc:	6f 92       	push	r6
- ede:	7f 92       	push	r7
- ee0:	8f 92       	push	r8
- ee2:	9f 92       	push	r9
- ee4:	af 92       	push	r10
- ee6:	bf 92       	push	r11
- ee8:	cf 92       	push	r12
- eea:	df 92       	push	r13
- eec:	ef 92       	push	r14
- eee:	ff 92       	push	r15
- ef0:	0f 93       	push	r16
- ef2:	1f 93       	push	r17
- ef4:	cf 93       	push	r28
- ef6:	df 93       	push	r29
- ef8:	cd b7       	in	r28, 0x3d	; 61
- efa:	de b7       	in	r29, 0x3e	; 62
- efc:	ca 1b       	sub	r28, r26
- efe:	db 0b       	sbc	r29, r27
- f00:	0f b6       	in	r0, 0x3f	; 63
- f02:	f8 94       	cli
- f04:	de bf       	out	0x3e, r29	; 62
- f06:	0f be       	out	0x3f, r0	; 63
- f08:	cd bf       	out	0x3d, r28	; 61
- f0a:	09 94       	ijmp
+00000ec2 <__prologue_saves__>:
+ ec2:	2f 92       	push	r2
+ ec4:	3f 92       	push	r3
+ ec6:	4f 92       	push	r4
+ ec8:	5f 92       	push	r5
+ eca:	6f 92       	push	r6
+ ecc:	7f 92       	push	r7
+ ece:	8f 92       	push	r8
+ ed0:	9f 92       	push	r9
+ ed2:	af 92       	push	r10
+ ed4:	bf 92       	push	r11
+ ed6:	cf 92       	push	r12
+ ed8:	df 92       	push	r13
+ eda:	ef 92       	push	r14
+ edc:	ff 92       	push	r15
+ ede:	0f 93       	push	r16
+ ee0:	1f 93       	push	r17
+ ee2:	cf 93       	push	r28
+ ee4:	df 93       	push	r29
+ ee6:	cd b7       	in	r28, 0x3d	; 61
+ ee8:	de b7       	in	r29, 0x3e	; 62
+ eea:	ca 1b       	sub	r28, r26
+ eec:	db 0b       	sbc	r29, r27
+ eee:	0f b6       	in	r0, 0x3f	; 63
+ ef0:	f8 94       	cli
+ ef2:	de bf       	out	0x3e, r29	; 62
+ ef4:	0f be       	out	0x3f, r0	; 63
+ ef6:	cd bf       	out	0x3d, r28	; 61
+ ef8:	09 94       	ijmp
 
-00000f0c <__epilogue_restores__>:
- f0c:	2a 88       	ldd	r2, Y+18	; 0x12
- f0e:	39 88       	ldd	r3, Y+17	; 0x11
- f10:	48 88       	ldd	r4, Y+16	; 0x10
- f12:	5f 84       	ldd	r5, Y+15	; 0x0f
- f14:	6e 84       	ldd	r6, Y+14	; 0x0e
- f16:	7d 84       	ldd	r7, Y+13	; 0x0d
- f18:	8c 84       	ldd	r8, Y+12	; 0x0c
- f1a:	9b 84       	ldd	r9, Y+11	; 0x0b
- f1c:	aa 84       	ldd	r10, Y+10	; 0x0a
- f1e:	b9 84       	ldd	r11, Y+9	; 0x09
- f20:	c8 84       	ldd	r12, Y+8	; 0x08
- f22:	df 80       	ldd	r13, Y+7	; 0x07
- f24:	ee 80       	ldd	r14, Y+6	; 0x06
- f26:	fd 80       	ldd	r15, Y+5	; 0x05
- f28:	0c 81       	ldd	r16, Y+4	; 0x04
- f2a:	1b 81       	ldd	r17, Y+3	; 0x03
- f2c:	aa 81       	ldd	r26, Y+2	; 0x02
- f2e:	b9 81       	ldd	r27, Y+1	; 0x01
- f30:	ce 0f       	add	r28, r30
- f32:	d1 1d       	adc	r29, r1
- f34:	0f b6       	in	r0, 0x3f	; 63
- f36:	f8 94       	cli
- f38:	de bf       	out	0x3e, r29	; 62
- f3a:	0f be       	out	0x3f, r0	; 63
- f3c:	cd bf       	out	0x3d, r28	; 61
- f3e:	ed 01       	movw	r28, r26
- f40:	08 95       	ret
+00000efa <__epilogue_restores__>:
+ efa:	2a 88       	ldd	r2, Y+18	; 0x12
+ efc:	39 88       	ldd	r3, Y+17	; 0x11
+ efe:	48 88       	ldd	r4, Y+16	; 0x10
+ f00:	5f 84       	ldd	r5, Y+15	; 0x0f
+ f02:	6e 84       	ldd	r6, Y+14	; 0x0e
+ f04:	7d 84       	ldd	r7, Y+13	; 0x0d
+ f06:	8c 84       	ldd	r8, Y+12	; 0x0c
+ f08:	9b 84       	ldd	r9, Y+11	; 0x0b
+ f0a:	aa 84       	ldd	r10, Y+10	; 0x0a
+ f0c:	b9 84       	ldd	r11, Y+9	; 0x09
+ f0e:	c8 84       	ldd	r12, Y+8	; 0x08
+ f10:	df 80       	ldd	r13, Y+7	; 0x07
+ f12:	ee 80       	ldd	r14, Y+6	; 0x06
+ f14:	fd 80       	ldd	r15, Y+5	; 0x05
+ f16:	0c 81       	ldd	r16, Y+4	; 0x04
+ f18:	1b 81       	ldd	r17, Y+3	; 0x03
+ f1a:	aa 81       	ldd	r26, Y+2	; 0x02
+ f1c:	b9 81       	ldd	r27, Y+1	; 0x01
+ f1e:	ce 0f       	add	r28, r30
+ f20:	d1 1d       	adc	r29, r1
+ f22:	0f b6       	in	r0, 0x3f	; 63
+ f24:	f8 94       	cli
+ f26:	de bf       	out	0x3e, r29	; 62
+ f28:	0f be       	out	0x3f, r0	; 63
+ f2a:	cd bf       	out	0x3d, r28	; 61
+ f2c:	ed 01       	movw	r28, r26
+ f2e:	08 95       	ret
 
-00000f42 <_exit>:
- f42:	f8 94       	cli
+00000f30 <_exit>:
+ f30:	f8 94       	cli
 
-00000f44 <__stop_program>:
- f44:	ff cf       	rjmp	.-2      	; 0xf44 <__stop_program>
+00000f32 <__stop_program>:
+ f32:	ff cf       	rjmp	.-2      	; 0xf32 <__stop_program>
