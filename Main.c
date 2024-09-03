@@ -71,12 +71,11 @@ void RightCycle(void) {
         staues = PINA; // Store the current state of PORTA
         _delay_ms(Speed); // Delay for 500ms
 
-        if (7 == RightCounter) { // Reset counter when it exceeds array bounds
-            RightCounter = -1;
-            PORTA = 0xFF; // Reset PORTA to high
+        if (RightCounter == 7) { // Reset counter when it exceeds array bounds
+            RightCounter = 0; // Start again from the beginning
+        } else {
+            RightCounter++; // Increment the counter
         }
-
-        RightCounter++; // Increment the counter
     }
 }
 
@@ -90,14 +89,13 @@ void LeftCycle(void) {
     while ((0b11111110 != PINB) && (0b11111101 == PINB) && (0b11111100 != PINB)) {
         PORTA ^= (1 << SegmentArray[LeftCounter]); // Toggle the current segment
         staues = PINA; // Store the current state of PORTA
-        _delay_ms(Speed); // Delay for 1000ms
+        _delay_ms(Speed); // Delay for 500ms
 
-        if (0 == LeftCounter) { // Reset counter when it goes below array bounds
-            LeftCounter = 8;
-            PORTA = 0xFF; // Reset PORTA to high
+        if (LeftCounter == 0) { // Reset counter when it goes below array bounds
+            LeftCounter = 7; // Start again from the end
+        } else {
+            LeftCounter--; // Decrement the counter
         }
-
-        LeftCounter--; // Decrement the counter
     }
 }
 

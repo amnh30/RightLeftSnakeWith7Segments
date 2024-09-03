@@ -30,47 +30,47 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-RightLeftSnake.lss \
+RightLeftSnakeWith7Segments.lss \
 
 FLASH_IMAGE += \
-RightLeftSnake.hex \
+RightLeftSnakeWith7Segments.hex \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: RightLeftSnake.elf secondary-outputs
+all: RightLeftSnakeWith7Segments.elf secondary-outputs
 
 # Tool invocations
-RightLeftSnake.elf: $(OBJS) $(USER_OBJS)
+RightLeftSnakeWith7Segments.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,RightLeftSnake.map -mmcu=atmega32 -o "RightLeftSnake.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,RightLeftSnakeWith7Segments.map -mmcu=atmega32 -o "RightLeftSnakeWith7Segments.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-RightLeftSnake.lss: RightLeftSnake.elf
+RightLeftSnakeWith7Segments.lss: RightLeftSnakeWith7Segments.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S RightLeftSnake.elf  >"RightLeftSnake.lss"
+	-avr-objdump -h -S RightLeftSnakeWith7Segments.elf  >"RightLeftSnakeWith7Segments.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-RightLeftSnake.hex: RightLeftSnake.elf
+RightLeftSnakeWith7Segments.hex: RightLeftSnakeWith7Segments.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex RightLeftSnake.elf  "RightLeftSnake.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex RightLeftSnakeWith7Segments.elf  "RightLeftSnakeWith7Segments.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: RightLeftSnake.elf
+sizedummy: RightLeftSnakeWith7Segments.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega32 RightLeftSnake.elf
+	-avr-size --format=avr --mcu=atmega32 RightLeftSnakeWith7Segments.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) RightLeftSnake.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) RightLeftSnakeWith7Segments.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)
